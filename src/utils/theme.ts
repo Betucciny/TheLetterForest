@@ -1,0 +1,96 @@
+import {
+    MD3LightTheme as DefaultThemeLight,
+    MD3DarkTheme as DefaultThemeDark,
+  } from 'react-native-paper';
+
+export const lightTheme = {
+    ...DefaultThemeLight,
+    "colors": {
+      "primary": "rgb(56, 107, 1)",
+      "onPrimary": "rgb(255, 255, 255)",
+      "primaryContainer": "rgb(183, 244, 129)",
+      "onPrimaryContainer": "rgb(13, 32, 0)",
+      "secondary": "rgb(0, 99, 154)",
+      "onSecondary": "rgb(255, 255, 255)",
+      "secondaryContainer": "rgb(206, 229, 255)",
+      "onSecondaryContainer": "rgb(0, 29, 50)",
+      "tertiary": "rgb(121, 89, 0)",
+      "onTertiary": "rgb(255, 255, 255)",
+      "tertiaryContainer": "rgb(255, 223, 160)",
+      "onTertiaryContainer": "rgb(38, 26, 0)",
+      "error": "rgb(186, 26, 26)",
+      "onError": "rgb(255, 255, 255)",
+      "errorContainer": "rgb(255, 218, 214)",
+      "onErrorContainer": "rgb(65, 0, 2)",
+      background: "rgba(253, 253, 245, 0.4)",
+      "onBackground": "rgb(26, 28, 24)",
+      "surface": "rgb(253, 253, 245)",
+      "onSurface": "rgb(26, 28, 24)",
+      "surfaceVariant": "rgb(224, 228, 214)",
+      "onSurfaceVariant": "rgb(68, 72, 62)",
+      "outline": "rgb(116, 121, 109)",
+      "outlineVariant": "rgb(196, 200, 186)",
+      "shadow": "rgb(0, 0, 0)",
+      "scrim": "rgb(0, 0, 0)",
+      "inverseSurface": "rgb(47, 49, 44)",
+      "inverseOnSurface": "rgb(241, 241, 234)",
+      "inversePrimary": "rgb(156, 215, 105)",
+      "elevation": {
+        "level0": "transparent",
+        "level1": "rgb(243, 246, 233)",
+        "level2": "rgb(237, 241, 226)",
+        "level3": "rgb(231, 237, 218)",
+        "level4": "rgb(229, 236, 216)",
+        "level5": "rgb(225, 233, 211)"
+      },
+      "surfaceDisabled": "rgba(26, 28, 24, 0.12)",
+      "onSurfaceDisabled": "rgba(26, 28, 24, 0.38)",
+      "backdrop": "rgba(45, 50, 40, 0.4)"
+    }
+  }
+
+  export const darkTheme = {
+    ...DefaultThemeDark,
+    "colors": {
+      "primary": "rgb(156, 215, 105)",
+      "onPrimary": "rgb(26, 55, 0)",
+      "primaryContainer": "rgb(40, 80, 0)",
+      "onPrimaryContainer": "rgb(183, 244, 129)",
+      "secondary": "rgb(150, 204, 255)",
+      "onSecondary": "rgb(0, 51, 83)",
+      "secondaryContainer": "rgb(0, 74, 117)",
+      "onSecondaryContainer": "rgb(206, 229, 255)",
+      "tertiary": "rgb(248, 189, 42)",
+      "onTertiary": "rgb(64, 45, 0)",
+      "tertiaryContainer": "rgb(92, 67, 0)",
+      "onTertiaryContainer": "rgb(255, 223, 160)",
+      "error": "rgb(255, 180, 171)",
+      "onError": "rgb(105, 0, 5)",
+      "errorContainer": "rgb(147, 0, 10)",
+      "onErrorContainer": "rgb(255, 180, 171)",
+      "background": "rgba(26, 28, 24, 0.4)",
+      "onBackground": "rgb(227, 227, 220)",
+      "surface": "rgb(26, 28, 24)",
+      "onSurface": "rgb(227, 227, 220)",
+      "surfaceVariant": "rgb(68, 72, 62)",
+      "onSurfaceVariant": "rgb(196, 200, 186)",
+      "outline": "rgb(142, 146, 134)",
+      "outlineVariant": "rgb(68, 72, 62)",
+      "shadow": "rgb(0, 0, 0)",
+      "scrim": "rgb(0, 0, 0)",
+      "inverseSurface": "rgb(227, 227, 220)",
+      "inverseOnSurface": "rgb(47, 49, 44)",
+      "inversePrimary": "rgb(56, 107, 1)",
+      "elevation": {
+        "level0": "transparent",
+        "level1": "rgb(33, 37, 28)",
+        "level2": "rgb(36, 43, 31)",
+        "level3": "rgb(40, 49, 33)",
+        "level4": "rgb(42, 50, 34)",
+        "level5": "rgb(44, 54, 35)"
+      },
+      "surfaceDisabled": "rgba(227, 227, 220, 0.12)",
+      "onSurfaceDisabled": "rgba(227, 227, 220, 0.38)",
+      "backdrop": "rgba(45, 50, 40, 0.4)"
+    }
+  }
