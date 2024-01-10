@@ -9,6 +9,7 @@
       "@hooks/*": ["src/hooks/*"],
       "@views/*": ["src/views/*"],
       "@assets/*": ["assets/*"],
+      "@context/*": ["src/context/*"],
     }
   }
 }

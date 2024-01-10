@@ -1,27 +1,13 @@
-import { useEffect, useState } from "react";
+
 import { Image, StyleSheet, View, Text } from 'react-native';
-import Animated, { useAnimatedProps, useSharedValue, withRepeat, withTiming } from 'react-native-reanimated';
+import Animated from 'react-native-reanimated';
 
 export function Character({ text }: { text: string }) {
-    const progress = useSharedValue(0);
-
-    useEffect(() => {
-        progress.value = withTiming(1, { duration: 10000 });
-    }, [text]);
-
-    const animatedProps = useAnimatedProps(() => {
-        const opacity = progress.value;
-        return {
-            opacity,
-        };
-    });
 
     if (text !== "") return (
         <View style={styles.imageContainer}>
             <Animated.View style={styles.textContainer}>
-                <Text
-                    style={styles.text}
-                >
+                <Text style={styles.text}>
                     {text}
                 </Text>
             </Animated.View>
@@ -37,6 +23,7 @@ export function Character({ text }: { text: string }) {
 
 const styles = StyleSheet.create({
     imageContainer: {
+        pointerEvents: 'none',
         position: 'absolute',
         left: 0,
         bottom: 0,
@@ -58,7 +45,6 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         padding: 10,
         borderColor: 'white',
-        borderWidth: 2,
     },
     text: {
         textAlign: 'center',

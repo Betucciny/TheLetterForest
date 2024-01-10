@@ -4,30 +4,30 @@ import { Button, useTheme } from "react-native-paper";
 import { Character } from "@/components/Character";
 import { useEffect, useState } from "react";
 import { setTimeoutPromise } from "@/utils/functions";
+import React from "react";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "App";
+import Animated from "react-native-reanimated";
+import InfoButton from "@/components/InfoButton";
+import { useTextAnimation } from "@/hooks/useTextAnimation";
 
-export default function HomeScreen() {
+type Props = {
+    navigation: NativeStackNavigationProp<RootStackParamList, 'Home'>;
+};
+
+export default function HomeScreen({navigation}: Props) {
     const theme = useTheme();
-    const [text, setText] = useState('' as string);
+    const messages = [
+        'Hi!',
+        'Welcome to the Word Forest!',
+        'Here you can learn the letters of the alphabet!',
+        'And also learn some words!',
+        'Are you ready?',
+        'Let\'s go!',
+        '',
+    ];
 
-    useEffect(() => {
-        setText('Hi!');
-
-        const changeText = async () => {
-            await setTimeoutPromise(5000);
-            setText('Welcome to the Word Forest!');
-            await setTimeoutPromise(5000);
-            setText('Here you can learn the letters of the alphabet!');
-            await setTimeoutPromise(5000);
-            setText('And also learn how to write them!');
-            await setTimeoutPromise(5000);
-            setText('Are you ready?');
-            await setTimeoutPromise(5000);
-            setText('Let\'s go!');
-            await setTimeoutPromise(5000);
-            setText('');
-        };
-        changeText();
-    }, []);
+    const text = useTextAnimation(messages);
 
     const styles = StyleSheet.create({
         mainContainer: {
@@ -53,7 +53,6 @@ export default function HomeScreen() {
         },
         button: {
             backgroundColor: theme.colors.primary,
-            padding: 10,
             borderRadius: 20,
             alignContent: 'center',
             justifyContent: 'center',
@@ -79,12 +78,13 @@ export default function HomeScreen() {
         <>
             <AnimatedBackGround />
             <View style={styles.mainContainer}>
-                <View style={[styles.container, styles.imageContainer]}>
-                    <Image
+                <Animated.View style={[styles.container, styles.imageContainer]} sharedTransitionTag="logoContainert">
+                    <Animated.Image
                         source={require('@assets/title.png')}
                         style={styles.titleImage}
+                        sharedTransitionTag="logo"
                     />
-                </View>
+                </Animated.View>
                 <View style={styles.container}>
                     <Text style={styles.text}>Welcome to the Word Forest!</Text>
                 </View>
@@ -92,9 +92,10 @@ export default function HomeScreen() {
                     <Button
                         icon={'play'}
                         mode={'elevated'}
-                        onPress={() => console.log('Pressed')}
+                        onPress={() => navigation.navigate('SelectGame')}
                         theme={theme}
                         labelStyle={styles.text}
+                        buttonColor={theme.colors.primary}
                         style={styles.button}
                     >
                         Play
@@ -102,14 +103,16 @@ export default function HomeScreen() {
                     <Button
                         icon={'book-open'}
                         mode={'elevated'}
-                        onPress={() => console.log('Pressed')}
+                        onPress={() => navigation.navigate('Help')}
                         theme={theme}
                         labelStyle={styles.text}
+                        buttonColor={theme.colors.primary}
                         style={styles.button}
                     >
                         Help
                     </Button>
                 </View>
+                <InfoButton />
                 <Character text={text}/>
             </View>
         </>
