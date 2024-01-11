@@ -1,5 +1,6 @@
 import AnimatedBackGround from "@/components/AnimatedBackground";
 import { Character } from "@/components/Character";
+import FlyingImage from "@/components/FlyingImage";
 import Header from "@/components/Header";
 import HomeButton from "@/components/HomeButton";
 import LetterList from "@/components/LetterList";
@@ -15,7 +16,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Letters'>;
 
 export default function Letters({ route, navigation }: Props) {
     const { randomLetters } = route.params;
-    console.log(randomLetters);
+
     const messages = [
         "Hi again, welcome to the letters section!",
         "Here you can learn the letters of the alphabet!",
@@ -36,6 +37,13 @@ export default function Letters({ route, navigation }: Props) {
             flexDirection: 'column',
             alignItems: 'center',
         },
+        containerAbsolute: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            height: '100%',
+            width: '100%',
+        }
     });
 
 
@@ -45,9 +53,14 @@ export default function Letters({ route, navigation }: Props) {
             <AnimatedBackGround />
             <View style={styles.mainContainer}>
                 <Header text1="Letters" text2="Select a letter" />
-                <LetterList navigation={navigation} randomLetters={randomLetters}/>
-                <Character text={text} />
+                <LetterList navigation={navigation} randomLetters={randomLetters} />
+
+            </View>
+            <View style={styles.containerAbsolute}>
                 <HomeButton navigation={navigation} />
+                <FlyingImage offsetY={120} direction="left" image={require('@assets/bee1.png')} delay={1000} />
+                <FlyingImage offsetY={700} direction="right" image={require('@assets/bee2.png')} />
+                <Character text={text} />
             </View>
         </>
     )

@@ -12,14 +12,14 @@ import Help from '@views/Help';
 import Letters from '@views/Letters';
 import Letter from '@views/Letter';
 import Guessing from '@views/Guessing';
-import {Letter as LetterType, randomLetters} from '@/utils/data';
+import { Letter as LetterType, getRandomLetters } from '@/utils/data';
 
 export type RootStackParamList = {
   Home: undefined;
   Help: undefined;
   SelectGame: undefined;
   Letters: { randomLetters: LetterType[] };
-  Letter: { letter: string };
+  Letter: { letter: string, randomOffset: number[] };
   Guessing: undefined;
 };
 
@@ -31,7 +31,8 @@ export default function App() {
   const { playSound } = useSound();
 
   useEffect(() => {
-    playSound(require('@assets/music/main.mp3'));
+    playSound(require("@assets/music/main.mp3"));
+    
   }, []);
 
   return (
@@ -42,9 +43,9 @@ export default function App() {
             <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
             <Stack.Screen name="SelectGame" component={SelectGame} options={{ headerShown: false }} />
             <Stack.Screen name="Help" component={Help} options={{ headerShown: false }} />
-            <Stack.Screen name="Letters" component={Letters} options={{ headerShown: false }} initialParams={randomLetters} />
+            <Stack.Screen name="Letters" component={Letters} options={{ headerShown: false }} initialParams={{ randomLetters: getRandomLetters() }} />
             <Stack.Screen name="Guessing" component={Guessing} options={{ headerShown: false }} />
-            <Stack.Screen name="Letter" component={Letter} options={{ headerShown: false }} initialParams={{letter: "a"}} />
+            <Stack.Screen name="Letter" component={Letter} options={{ headerShown: false }} initialParams={{ letter: "a" }} />
           </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>

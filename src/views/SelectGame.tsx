@@ -1,9 +1,10 @@
 import AnimatedBackGround from "@/components/AnimatedBackground";
 import { Character } from "@/components/Character";
+import FlyingImage from "@/components/FlyingImage";
 import Header from "@/components/Header";
 import HomeButton from "@/components/HomeButton";
 import { useTextAnimation } from "@/hooks/useTextAnimation";
-import { randomLetters } from "@/utils/data";
+import { getRandomLetters } from "@/utils/data";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "App";
 import { View, Text, StyleSheet, Image, SafeAreaView } from "react-native";
@@ -89,6 +90,13 @@ export default function SelectGame({ navigation }: Props) {
             resizeMode: "cover",
             borderRadius: 10,
         },
+        containerAbsolute: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            height: '100%',
+            width: '100%',
+        }
     });
     return (
         <>
@@ -105,7 +113,7 @@ export default function SelectGame({ navigation }: Props) {
                         </View>
                         <Button
                             mode="contained"
-                            onPress={() => navigation.navigate('Letters', { randomLetters: randomLetters})}
+                            onPress={() => navigation.navigate('Letters', { randomLetters: getRandomLetters() })}
                             style={styles.button}
                         >
                             <Text style={styles.text}>Letters</Text>
@@ -127,8 +135,12 @@ export default function SelectGame({ navigation }: Props) {
                         </Button>
                     </View>
                 </View>
-                <HomeButton navigation={navigation} />
-                <Character text={text} />
+                <View style={styles.containerAbsolute}>
+                    <FlyingImage offsetY={40} direction="left" image={require('@assets/bee1.png')} delay={1000} />
+                    <FlyingImage offsetY={600} direction="right" image={require('@assets/bee2.png')} />
+                    <HomeButton navigation={navigation} />
+                    <Character text={text} />
+                </View>
             </View>
         </>
     );

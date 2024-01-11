@@ -1,6 +1,19 @@
 import { ImageSourcePropType } from "react-native";
 
-export const letters_data = {
+type LetterData = {
+    [key: string]: {
+        name: string;
+        image: ImageSourcePropType;
+        sound: ImageSourcePropType;
+        words: {
+            word: string;
+            image: ImageSourcePropType;
+            shadow: ImageSourcePropType;
+        }[];
+    };
+};
+
+export const letters_data: LetterData = {
     "A": {
         "name": "A",
         "image": require("@assets/letters/a.png"),
@@ -457,7 +470,9 @@ export const words_data: { [key: string]: any } = Object.values(letters_data)
     }, {});
 
 
-export const randomLetters: Letter[] = Object.values(letters_data).sort(() => 0.5 - Math.random()).slice(0, 10);
+export const getRandomLetters: () => Letter[] = () => Object.values(letters_data).sort(() => 0.5 - Math.random()).slice(0, 10);
+
+export const getLetter: (letter: string) => Letter = (letter) => letters_data[letter];
 
 export type Letter = {
     name: string;

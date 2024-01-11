@@ -18,7 +18,7 @@ export function Character({ text }: { text: string }) {
         </View>
     );
 
-    return <></>;
+    return null;
 }
 
 const styles = StyleSheet.create({
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
         resizeMode: "cover",
     },
     textContainer: {
+        pointerEvents: 'none',
         position: 'absolute',
         top: -30,
         right: -150,
@@ -47,6 +48,7 @@ const styles = StyleSheet.create({
         borderColor: 'white',
     },
     text: {
+        pointerEvents: 'none',
         textAlign: 'center',
         fontSize: 20,
         fontWeight: 'bold',

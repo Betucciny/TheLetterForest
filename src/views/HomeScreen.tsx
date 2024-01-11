@@ -1,6 +1,6 @@
 import AnimatedBackGround from "@/components/AnimatedBackground";
 import { View, Text, StyleSheet, Image } from "react-native";
-import { Button, useTheme } from "react-native-paper";
+import { Button, Icon, useTheme } from "react-native-paper";
 import { Character } from "@/components/Character";
 import { useEffect, useState } from "react";
 import { setTimeoutPromise } from "@/utils/functions";
@@ -10,12 +10,13 @@ import { RootStackParamList } from "App";
 import Animated from "react-native-reanimated";
 import InfoButton from "@/components/InfoButton";
 import { useTextAnimation } from "@/hooks/useTextAnimation";
+import FlyingImage from "@/components/FlyingImage";
 
 type Props = {
     navigation: NativeStackNavigationProp<RootStackParamList, 'Home'>;
 };
 
-export default function HomeScreen({navigation}: Props) {
+export default function HomeScreen({ navigation }: Props) {
     const theme = useTheme();
     const messages = [
         'Hi!',
@@ -72,19 +73,27 @@ export default function HomeScreen({navigation}: Props) {
             alignContent: 'center',
             justifyContent: 'center',
         },
+        containerAbsolute: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            height: '100%',
+            width: '100%',
+        },
+
     });
 
     return (
         <>
             <AnimatedBackGround />
             <View style={styles.mainContainer}>
-                <Animated.View style={[styles.container, styles.imageContainer]} sharedTransitionTag="logoContainert">
+                <View style={[styles.container, styles.imageContainer]}>
                     <Animated.Image
                         source={require('@assets/title.png')}
                         style={styles.titleImage}
                         sharedTransitionTag="logo"
                     />
-                </Animated.View>
+                </View>
                 <View style={styles.container}>
                     <Text style={styles.text}>Welcome to the Word Forest!</Text>
                 </View>
@@ -112,10 +121,13 @@ export default function HomeScreen({navigation}: Props) {
                         Help
                     </Button>
                 </View>
+            </View>
+            <View style={styles.containerAbsolute}>
                 <InfoButton />
-                <Character text={text}/>
+                <FlyingImage offsetY={500} direction="left" image={require('@assets/bee1.png')} delay={1000} />
+                <FlyingImage offsetY={30} direction="right" image={require('@assets/bee2.png')} />
+                <Character text={text} />
             </View>
         </>
     );
 }
-         
