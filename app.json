@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "TheLetterForest",
-    "slug": "TheLetterForest",
+    "slug": "theletterforest",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#386b01"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -19,15 +19,22 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#386b01"
+      },
+      "package": "com.betucciny.theletterforest"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/icon.png"
     },
     "experiments": {
       "tsconfigPaths": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b098fd53-be92-40da-8406-c6a076935b1b"
+      }
+    },
+    "owner": "betucciny"
   }
 }
