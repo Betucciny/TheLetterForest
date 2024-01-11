@@ -4,7 +4,7 @@ import FlyingImage from "@/components/FlyingImage";
 import Header from "@/components/Header";
 import HomeButton from "@/components/HomeButton";
 import LetterList from "@/components/LetterList";
-import { useTextAnimation } from "@/hooks/useTextAnimation";
+import  useTextAnimation  from "@/hooks/useTextAnimation";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "App";
 import { View, StyleSheet, FlatList, } from "react-native";

@@ -3,8 +3,8 @@ import { Character } from "@/components/Character";
 import FlyingImage from "@/components/FlyingImage";
 import Header from "@/components/Header";
 import HomeButton from "@/components/HomeButton";
-import { useTextAnimation } from "@/hooks/useTextAnimation";
-import { getRandomLetters } from "@/utils/data";
+import useTextAnimation from "@/hooks/useTextAnimation";
+import { getRandomLetters, getRandomWord } from "@/utils/data";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "App";
 import { View, Text, StyleSheet, Image, SafeAreaView } from "react-native";
@@ -128,7 +128,7 @@ export default function SelectGame({ navigation }: Props) {
                         </View>
                         <Button
                             mode="contained"
-                            onPress={() => navigation.navigate('Guessing')}
+                            onPress={() => navigation.navigate('Guessing', { word: getRandomWord() })}
                             style={styles.button}
                         >
                             <Text style={styles.text}>Words</Text>

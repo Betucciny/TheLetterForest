@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Audio } from 'expo-av';
 
-export function useSound() {
+export default function useSound() {
   const [sound, setSound] = useState<Audio.Sound | undefined>();
 
   async function playSound(soundFile: any) {

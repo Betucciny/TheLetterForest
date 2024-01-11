@@ -3,7 +3,7 @@ import { Character } from "@/components/Character";
 import FlyingImage from "@/components/FlyingImage";
 import Header from "@/components/Header";
 import HomeButton from "@/components/HomeButton";
-import { useTextAnimation } from "@/hooks/useTextAnimation";
+import useTextAnimation  from "@/hooks/useTextAnimation";
 import { getLetter } from "@/utils/data";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "App";

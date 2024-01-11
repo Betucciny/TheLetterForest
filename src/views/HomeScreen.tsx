@@ -9,7 +9,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "App";
 import Animated from "react-native-reanimated";
 import InfoButton from "@/components/InfoButton";
-import { useTextAnimation } from "@/hooks/useTextAnimation";
+import  useTextAnimation from "@/hooks/useTextAnimation";
 import FlyingImage from "@/components/FlyingImage";
 
 type Props = {

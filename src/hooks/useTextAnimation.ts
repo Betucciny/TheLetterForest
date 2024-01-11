@@ -4,7 +4,7 @@ import { setTimeoutPromise } from "@/utils/functions";
 type UseTextAnimationProps = string[];
 ;
 
-export const useTextAnimation = (messages: UseTextAnimationProps) => {
+export default function useTextAnimation (messages: UseTextAnimationProps) {
     const [text, setText] = useState("");
 
     useEffect(() => {

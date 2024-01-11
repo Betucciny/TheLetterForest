@@ -464,15 +464,51 @@ export const words_data: { [key: string]: any } = Object.values(letters_data)
     .map((letter) => letter.words)
     .flat()
     .reduce((acc: { [key: string]: any }, word) => {
-        acc[word.word] = { ...word, name: word.word };
-        delete acc[word.word].word;
+        acc[word.word] = { ...word };
         return acc;
     }, {});
 
 
+export const FAQ = [
+    {
+        "question": "What is The Word Forest?",
+        "answer": "The Word Forest is an interactive and educational app designed for children. It offers a variety of engaging games and activities that aim to entertain, educate, and foster the development of essential language and literacy skills in a fun and creative way."
+    },
+    {
+        "question": "What age group is the app suitable for?",
+        "answer": "The Word Forest is tailored for children in the 4-8 age range. The content is age-appropriate, with games designed to cater to various developmental stages in language acquisition."
+    },
+    {
+        "question": "How can The Word Forest benefit my child?",
+        "answer": "The Word Forest focuses on promoting key language skills such as vocabulary building, reading comprehension, and word recognition. The interactive nature of the games encourages learning through play, making it an effective tool for educational enrichment."
+    },
+    {
+        "question": "Is the content safe and age-appropriate?",
+        "answer": "Yes, the content within The Word Forest is carefully curated to be both safe and age-appropriate. We prioritize creating a secure environment for children, free from inappropriate content."
+    },
+    {
+        "question": "Are there any in-app purchases?",
+        "answer": "No, The Word Forest does not include any in-app purchases. All core content and features are accessible without any additional costs. We believe in providing a completely free and positive experience for both children and parents."
+    },
+    {
+        "question": "Is The Word Forest available on multiple devices?",
+        "answer": "Yes, The Word Forest is designed to be accessible on multiple devices, including smartphones and tablets. You can download the app on Android platforms."
+    },
+    {
+        "question": "How often is the content updated?",
+        "answer": "The Word Forest is a product with a single release. It offers a variety of games, activities, and features designed to entertain, educate, and foster the development of essential language and literacy skills in a fun and creative way."
+    },
+]
+
+
+
+
 export const getRandomLetters: () => Letter[] = () => Object.values(letters_data).sort(() => 0.5 - Math.random()).slice(0, 10);
 
+export const getRandomWord: () => Word = () => Object.values(words_data).sort(() => 0.5 - Math.random())[0];
+
 export const getLetter: (letter: string) => Letter = (letter) => letters_data[letter];
+
 
 export type Letter = {
     name: string;
